@@ -34,23 +34,36 @@ class Square extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            square: [0,0,0,0,0,0,0,0,0],
-            squareOne: [0,0,0,0,0,0,0,0,0],
-            squareTwo: [0,0,0,0,0,0,0,0,0],
-            squareThree: [0,0,0,0,0,0,0,0,0],
-            squareFour: [0,0,0,0,0,0,0,0,0],
-            squareFive: [0,0,0,0,0,0,0,0,0],
-            squareSix: [0,0,0,0,0,0,0,0,0],
-            squareSeven: [0,0,0,0,0,0,0,0,0],
-            squareEight: [0,0,0,0,0,0,0,0,0],
-            squareNine: [0,0,0,0,0,0,0,0,0],
+            square: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            squareOne: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            squareTwo: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            squareThree: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            squareFour: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            squareFive: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            squareSix: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            squareSeven: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            squareEight: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            squareNine: [0, 0, 0, 0, 0, 0, 0, 0, 0],
 
         }
     }
 
+    componentWillMount() {
+        fetch('https://sugoku.herokuapp.com/board?difficulty=easy').then(r => {
+            return r.json();
+        }).then(obj => {
+            return obj.board
+        }).then(arr => {
+            console.log('hej');
+            this.setState({
+                square: arr
+            })
+        });
+
+    }
+
     fillBoard = () => {
-        console.log('uwaga');
-        console.log(this.state.square[0]);
+
         this.setState({
             squareOne: this.state.square[0],
             squareTwo: this.state.square[1],
@@ -65,139 +78,191 @@ class Square extends React.Component {
         })
     };
 
-    render() {
-        fetch('https://sugoku.herokuapp.com/board?difficulty=easy').then(r => {
-            return r.json();
-        }).then(obj => {
-            return obj.board
-        }).then(arr => {
-            this.setState({
-                square: arr
-            })
-        });
-        // this.fillBoard();
+    checkSolution = () => {
+        let sq1 = Array.from(document.querySelectorAll(".sq1"));
+        let sq2 = Array.from(document.querySelectorAll(".sq2"));
+        let sq3 = Array.from(document.querySelectorAll(".sq3"));
+        let sq4 = Array.from(document.querySelectorAll(".sq4"));
+        let sq5 = Array.from(document.querySelectorAll(".sq5"));
+        let sq6 = Array.from(document.querySelectorAll(".sq6"));
+        let sq7 = Array.from(document.querySelectorAll(".sq7"));
+        let sq8 = Array.from(document.querySelectorAll(".sq8"));
+        let sq9 = Array.from(document.querySelectorAll(".sq9"));
+        console.log(sq1);
 
-        // /////////////// xx
-        // let data = {
-        //     board: [[0, 0, 1, 0, 0, 0, 0, 0, 0],
-        //         [2, 0, 0, 0, 0, 0, 0, 7, 0],
-        //         [0, 7, 0, 0, 0, 0, 0, 0, 0],
-        //         [1, 0, 0, 4, 0, 6, 0, 0, 7],
-        //         [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        //         [0, 0, 0, 0, 1, 2, 5, 4, 6],
-        //         [3, 0, 2, 7, 6, 0, 9, 8, 0],
-        //         [0, 6, 4, 9, 0, 3, 0, 0, 1],
-        //         [9, 8, 0, 5, 2, 1, 0, 6, 0]]
-        // };
-        // fetch('https://sugoku.herokuapp.com/validate', {
-        //     method: 'POST',
-        //     body: JSON.stringify(data)
-        // }).then(response => response.json())
-        //     .then(data => {
-        //         console.log(data)
-        //     });
+        let data = {
+            board: [
+                sq1,
+                sq2,
+                sq3,
+                sq4,
+                sq5,
+                sq6,
+                sq7,
+                sq8,
+                sq9
+            ]
+        };
+        fetch('https://sugoku.herokuapp.com/validate', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        }).then(response => response.json())
+            .then(data => {
+                console.log(data)
+            });
+    };
+
+    render() {
+        const square1 = [];
+        const square2 = [];
+        const square3 = [];
+        const square4 = [];
+        const square5 = [];
+        const square6 = [];
+        const square7 = [];
+        const square8 = [];
+        const square9 = [];
+
+        this.state.squareOne.map((e, i) => {
+            if (e > 0) {
+                return (
+                    square1.push(<div className="small-square sq1">{e}</div>)
+                )
+            } else {
+                return (
+                    square1.push(<input className="small-square sq1" type="text"/>)
+                )
+            }
+        });
+
+        this.state.squareTwo.map((e, i) => {
+            if (e > 0) {
+                return (
+                    square2.push(<div className="small-square sq2">{e}</div>)
+                )
+            } else {
+                return (
+                    square2.push(<input className="small-square sq2" type="text"/>)
+                )
+            }
+        });
+
+        this.state.squareThree.map((e, i) => {
+            if (e > 0) {
+                return (
+                    square3.push(<div className="small-square sq3">{e}</div>)
+                )
+            } else {
+                return (
+                    square3.push(<input className="small-square sq3" type="text"/>)
+                )
+            }
+        });
+
+        this.state.squareFour.map((e, i) => {
+            if (e > 0) {
+                return (
+                    square4.push(<div className="small-square sq4">{e}</div>)
+                )
+            } else {
+                return (
+                    square4.push(<input className="small-square sq4" type="text"/>)
+                )
+            }
+        });
+
+        this.state.squareFive.map((e, i) => {
+            if (e > 0) {
+                return (
+                    square5.push(<div className="small-square s5">{e}</div>)
+                )
+            } else {
+                return (
+                    square5.push(<input className="small-square s5" type="text"/>)
+                )
+            }
+        });
+
+        this.state.squareSix.map((e, i) => {
+            if (e > 0) {
+                return (
+                    square6.push(<div className="small-square s6">{e}</div>)
+                )
+            } else {
+                return (
+                    square6.push(<input className="small-square s6" type="text"/>)
+                )
+            }
+        });
+
+        this.state.squareSeven.map((e, i) => {
+            if (e > 0) {
+                return (
+                    square7.push(<div className="small-square s7">{e}</div>)
+                )
+            } else {
+                return (
+                    square7.push(<input className="small-square s7" type="text"/>)
+                )
+            }
+        });
+
+        this.state.squareEight.map((e, i) => {
+            if (e > 0) {
+                return (
+                    square8.push(<div className="small-square s8">{e}</div>)
+                )
+            } else {
+                return (
+                    square8.push(<input className="small-square s8" type="text"/>)
+                )
+            }
+        });
+        this.state.squareNine.map((e, i) => {
+            if (e > 0) {
+                return (
+                    square9.push(<div className="small-square s9">{e}</div>)
+                )
+            } else {
+                return (
+                    square9.push(<input className="small-square s9" type="text"/>)
+                )
+            }
+        });
 
         return (
-            <div className="board">
+            <div>
+
                 <button onClick={this.fillBoard}>START</button>
-                <div className="main-square">
-                    <div className="small-square">{this.state.squareOne[0]}</div>
-                    <div className="small-square">{this.state.squareOne[1]}</div>
-                    <div className="small-square">{this.state.squareOne[2]}</div>
-                    <div className="small-square">{this.state.squareOne[3]}</div>
-                    <div className="small-square">{this.state.squareOne[4]}</div>
-                    <div className="small-square">{this.state.squareOne[5]}</div>
-                    <div className="small-square">{this.state.squareOne[6]}</div>
-                    <div className="small-square">{this.state.squareOne[7]}</div>
-                    <div className="small-square">{this.state.squareOne[8]}</div>
-                </div>
-                <div className="main-square">
-                    <div className="small-square">{this.state.squareTwo[0]}</div>
-                    <div className="small-square">{this.state.squareTwo[1]}</div>
-                    <div className="small-square">{this.state.squareTwo[2]}</div>
-                    <div className="small-square">{this.state.squareTwo[3]}</div>
-                    <div className="small-square">{this.state.squareTwo[4]}</div>
-                    <div className="small-square">{this.state.squareTwo[5]}</div>
-                    <div className="small-square">{this.state.squareTwo[6]}</div>
-                    <div className="small-square">{this.state.squareTwo[7]}</div>
-                    <div className="small-square">{this.state.squareTwo[8]}</div>
-                </div>
-                <div className="main-square">
-                    <div className="small-square">{this.state.squareThree[0]}</div>
-                    <div className="small-square">{this.state.squareThree[1]}</div>
-                    <div className="small-square">{this.state.squareThree[2]}</div>
-                    <div className="small-square">{this.state.squareThree[3]}</div>
-                    <div className="small-square">{this.state.squareThree[4]}</div>
-                    <div className="small-square">{this.state.squareThree[5]}</div>
-                    <div className="small-square">{this.state.squareThree[6]}</div>
-                    <div className="small-square">{this.state.squareThree[7]}</div>
-                    <div className="small-square">{this.state.squareThree[8]}</div>
-                </div>
-                <div className="main-square">
-                    <div className="small-square">{this.state.squareFour[0]}</div>
-                    <div className="small-square">{this.state.squareFour[1]}</div>
-                    <div className="small-square">{this.state.squareFour[2]}</div>
-                    <div className="small-square">{this.state.squareFour[3]}</div>
-                    <div className="small-square">{this.state.squareFour[4]}</div>
-                    <div className="small-square">{this.state.squareFour[5]}</div>
-                    <div className="small-square">{this.state.squareFour[6]}</div>
-                    <div className="small-square">{this.state.squareFour[7]}</div>
-                    <div className="small-square">{this.state.squareFour[8]}</div>
-                </div>
-                <div className="main-square">
-                    <div className="small-square">{this.state.squareFive[0]}</div>
-                    <div className="small-square">{this.state.squareFive[1]}</div>
-                    <div className="small-square">{this.state.squareFive[2]}</div>
-                    <div className="small-square">{this.state.squareFive[3]}</div>
-                    <div className="small-square">{this.state.squareFive[4]}</div>
-                    <div className="small-square">{this.state.squareFive[5]}</div>
-                    <div className="small-square">{this.state.squareFive[6]}</div>
-                    <div className="small-square">{this.state.squareFive[7]}</div>
-                    <div className="small-square">{this.state.squareFive[8]}</div>
-                </div>
-                <div className="main-square">
-                    <div className="small-square">{this.state.squareSix[0]}</div>
-                    <div className="small-square">{this.state.squareSix[1]}</div>
-                    <div className="small-square">{this.state.squareSix[2]}</div>
-                    <div className="small-square">{this.state.squareSix[3]}</div>
-                    <div className="small-square">{this.state.squareSix[4]}</div>
-                    <div className="small-square">{this.state.squareSix[5]}</div>
-                    <div className="small-square">{this.state.squareSix[6]}</div>
-                    <div className="small-square">{this.state.squareSix[7]}</div>
-                    <div className="small-square">{this.state.squareSix[8]}</div>
-                </div>
-                <div className="main-square">
-                    <div className="small-square">{this.state.squareSeven[0]}</div>
-                    <div className="small-square">{this.state.squareSeven[1]}</div>
-                    <div className="small-square">{this.state.squareSeven[2]}</div>
-                    <div className="small-square">{this.state.squareSeven[3]}</div>
-                    <div className="small-square">{this.state.squareSeven[4]}</div>
-                    <div className="small-square">{this.state.squareSeven[5]}</div>
-                    <div className="small-square">{this.state.squareSeven[6]}</div>
-                    <div className="small-square">{this.state.squareSeven[7]}</div>
-                    <div className="small-square">{this.state.squareSeven[8]}</div>
-                </div>
-                <div className="main-square">
-                    <div className="small-square">{this.state.squareEight[0]}</div>
-                    <div className="small-square">{this.state.squareEight[1]}</div>
-                    <div className="small-square">{this.state.squareEight[2]}</div>
-                    <div className="small-square">{this.state.squareEight[3]}</div>
-                    <div className="small-square">{this.state.squareEight[4]}</div>
-                    <div className="small-square">{this.state.squareEight[5]}</div>
-                    <div className="small-square">{this.state.squareEight[6]}</div>
-                    <div className="small-square">{this.state.squareEight[7]}</div>
-                    <div className="small-square">{this.state.squareEight[8]}</div>
-                </div>
-                <div className="main-square">
-                    <div className="small-square">{this.state.squareNine[0]}</div>
-                    <div className="small-square">{this.state.squareNine[1]}</div>
-                    <div className="small-square">{this.state.squareNine[2]}</div>
-                    <div className="small-square">{this.state.squareNine[3]}</div>
-                    <div className="small-square">{this.state.squareNine[4]}</div>
-                    <div className="small-square">{this.state.squareNine[5]}</div>
-                    <div className="small-square">{this.state.squareNine[6]}</div>
-                    <div className="small-square">{this.state.squareNine[7]}</div>
-                    <div className="small-square">{this.state.squareNine[8]}</div>
+                <button onClick={this.checkSolution}>APROVE AND CHECK</button>
+                <div className="board">
+                    <div className="main-square">
+                        {square1}
+                    </div>
+                    <div className="main-square">
+                        {square2}
+                    </div>
+                    <div className="main-square">
+                        {square3}
+                    </div>
+                    <div className="main-square">
+                        {square4}
+                    </div>
+                    <div className="main-square">
+                        {square5}
+                    </div>
+                    <div className="main-square">
+                        {square6}
+                    </div>
+                    <div className="main-square">
+                        {square7}
+                    </div>
+                    <div className="main-square">
+                        {square8}
+                    </div>
+                    <div className="main-square">
+                        {square9}
+                    </div>
                 </div>
             </div>
         )
