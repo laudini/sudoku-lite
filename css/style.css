@@ -82,11 +82,15 @@ body {
     flex-wrap: wrap;
     width: 150px;
     height: 150px;
+    border: 1px solid black;
 }
 .small-square {
-    width: 50px;
-    height: 50px;
+    display: flex;
+    width: 49px;
+    height: 49px;
     border: 1px solid black;
+    justify-content: center;
+    align-items: center;
 }
 input {
     max-width: 50px;
