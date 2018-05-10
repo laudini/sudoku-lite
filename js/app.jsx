@@ -79,6 +79,17 @@ class Square extends React.Component {
     };
 
     checkSolution = () => {
+        let allSmallSquares = document.querySelectorAll(".small-square");
+        let allSolved = false;
+        console.log(allSmallSquares);
+        for (let i = 0; i < allSmallSquares.length; i++) {
+            if (allSmallSquares[i].value > 0 && allSmallSquares[i].value < 10 || allSmallSquares[i].innerText > 0 && allSmallSquares[i].innerText < 10 ) {
+                allSolved = true;
+            } else {
+                console.log('x', allSmallSquares[i]);
+                return allSolved = false;
+            }
+        }
         let sq1 = Array.from(document.querySelectorAll(".sq1"));
         let sq2 = Array.from(document.querySelectorAll(".sq2"));
         let sq3 = Array.from(document.querySelectorAll(".sq3"));
@@ -88,7 +99,6 @@ class Square extends React.Component {
         let sq7 = Array.from(document.querySelectorAll(".sq7"));
         let sq8 = Array.from(document.querySelectorAll(".sq8"));
         let sq9 = Array.from(document.querySelectorAll(".sq9"));
-        console.log(sq1);
 
         let data = {
             board: [
@@ -234,7 +244,7 @@ class Square extends React.Component {
             <div>
 
                 <button onClick={this.fillBoard}>START</button>
-                <button onClick={this.checkSolution}>APROVE AND CHECK</button>
+                <button onClick={this.checkSolution}>APPROVE AND CHECK</button>
                 <div className="board">
                     <div className="main-square">
                         {square1}
