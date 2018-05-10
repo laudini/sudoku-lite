@@ -219,21 +219,62 @@ class Square extends React.Component {
                 sq9elems.push(sq9[i].value)
             }
         }
-
+        let finishedLines = [sq1elems, sq2elems, sq3elems, sq4elems, sq5elems, sq6elems, sq7elems, sq8elems, sq9elems]
+        let finalArray = [[],[],[],[],[],[],[],[],[]];
+        for (let i = 0; i < finishedLines.length; i++) {
+            if (i === 0) {
+                finalArray[i].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                finalArray[i + 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                finalArray[i + 2].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+            } else if (i === 1) {
+                finalArray[i - 1].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                finalArray[i].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                finalArray[i + 1].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+            } else if (i === 2) {
+                finalArray[i - 2].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                finalArray[i - 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                finalArray[i].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+            } else if (i === 3) {
+                finalArray[i].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                finalArray[i + 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                finalArray[i + 2].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+            } else if (i === 4) {
+                finalArray[i - 1].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                finalArray[i].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                finalArray[i + 1].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+            } else if (i === 5) {
+                finalArray[i - 2].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                finalArray[i - 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                finalArray[i].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+            } else if (i === 6) {
+                finalArray[i].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                finalArray[i + 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                finalArray[i + 2].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+            } else if (i === 7) {
+                finalArray[i - 1].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                finalArray[i].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                finalArray[i + 1].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+            } else if (i === 8) {
+                finalArray[i - 2].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                finalArray[i - 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                finalArray[i].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+            }
+        }
 
         let data = {
             board: [
-                sq1elems,
-                sq2elems,
-                sq3elems,
-                sq4elems,
-                sq5elems,
-                sq6elems,
-                sq7elems,
-                sq8elems,
-                sq9elems
+                finalArray[0],
+                finalArray[1],
+                finalArray[2],
+                finalArray[3],
+                finalArray[4],
+                finalArray[5],
+                finalArray[6],
+                finalArray[7],
+                finalArray[8]
             ]
         };
+        console.log(data);
         fetch('https://sugoku.herokuapp.com/validate', {
             method: 'POST',
             body: JSON.stringify(data)
