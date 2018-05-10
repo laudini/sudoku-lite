@@ -54,7 +54,6 @@ class Square extends React.Component {
         }).then(obj => {
             return obj.board
         }).then(arr => {
-            console.log('hej');
             this.setState({
                 square: arr
             })
@@ -81,36 +80,117 @@ class Square extends React.Component {
     checkSolution = () => {
         let allSmallSquares = document.querySelectorAll(".small-square");
         let allSolved = false;
-        console.log(allSmallSquares);
         for (let i = 0; i < allSmallSquares.length; i++) {
             if (allSmallSquares[i].value > 0 && allSmallSquares[i].value < 10 || allSmallSquares[i].innerText > 0 && allSmallSquares[i].innerText < 10 ) {
                 allSolved = true;
             } else {
-                console.log('x', allSmallSquares[i]);
-                return allSolved = false;
+                allSolved = false;
+                break;
             }
         }
+
         let sq1 = Array.from(document.querySelectorAll(".sq1"));
+        let sq1elems = [];
+        for (let i = 0; i < 9; i++) {
+            if (sq1[i].tagName === "DIV") {
+                sq1elems.push(sq1[i].innerText)
+            } else {
+                sq1elems.push(sq1[i].value)
+            }
+        }
+
         let sq2 = Array.from(document.querySelectorAll(".sq2"));
+        let sq2elems = [];
+        for (let i = 0; i < 9; i++) {
+            if (sq2[i].tagName === "DIV") {
+                sq2elems.push(sq2[i].innerText)
+            } else {
+                sq2elems.push(sq2[i].value)
+            }
+        }
+
         let sq3 = Array.from(document.querySelectorAll(".sq3"));
+        let sq3elems = [];
+        for (let i = 0; i < 9; i++) {
+            if (sq3[i].tagName === "DIV") {
+                sq1elems.push(sq3[i].innerText)
+            } else {
+                sq3elems.push(sq3[i].value)
+            }
+        }
+
         let sq4 = Array.from(document.querySelectorAll(".sq4"));
+        let sq4elems = [];
+        for (let i = 0; i < 9; i++) {
+            if (sq4[i].tagName === "DIV") {
+                sq4elems.push(sq4[i].innerText)
+            } else {
+                sq4elems.push(sq4[i].value)
+            }
+        }
+
         let sq5 = Array.from(document.querySelectorAll(".sq5"));
+        let sq5elems = [];
+        for (let j = 0; j < 9; j++) {
+            if (sq5[j].tagName === "DIV") {
+                sq5elems.push(sq5[j].innerText)
+            } else {
+                sq5elems.push(sq5[j].value)
+            }
+        }
+
         let sq6 = Array.from(document.querySelectorAll(".sq6"));
+        let sq6elems = [];
+        for (let i = 0; i < 9; i++) {
+            if (sq6[i].tagName === "DIV") {
+                sq6elems.push(sq6[i].innerText)
+            } else {
+                sq6elems.push(sq6[i].value)
+            }
+        }
+
         let sq7 = Array.from(document.querySelectorAll(".sq7"));
+        let sq7elems = [];
+        for (let i = 0; i < 9; i++) {
+            if (sq7[i].tagName === "DIV") {
+                sq7elems.push(sq7[i].innerText)
+            } else {
+                sq7elems.push(sq7[i].value)
+            }
+        }
+
         let sq8 = Array.from(document.querySelectorAll(".sq8"));
+        let sq8elems = [];
+        for (let i = 0; i < 9; i++) {
+            if (sq8[i].tagName === "DIV") {
+                sq8elems.push(sq8[i].innerText)
+            } else {
+                sq8elems.push(sq8[i].value)
+            }
+        }
+
         let sq9 = Array.from(document.querySelectorAll(".sq9"));
+        let sq9elems = [];
+        for (let i = 0; i < 9; i++) {
+            if (sq9[i].tagName === "DIV") {
+                sq9elems.push(sq9[i].innerText)
+            } else {
+                sq9elems.push(sq9[i].value)
+            }
+        }
+
 
         let data = {
             board: [
-                sq1,
-                sq2,
-                sq3,
-                sq4,
-                sq5,
-                sq6,
-                sq7,
-                sq8,
-                sq9
+                sq1elems,
+                sq2elems,
+                sq3elems,
+                sq4elems,
+                sq5elems,
+                sq6elems,
+                sq7elems,
+                sq8elems,
+                sq9elems
             ]
         };
         fetch('https://sugoku.herokuapp.com/validate', {
@@ -184,11 +264,11 @@ class Square extends React.Component {
         this.state.squareFive.map((e, i) => {
             if (e > 0) {
                 return (
-                    square5.push(<div className="small-square s5">{e}</div>)
+                    square5.push(<div className="small-square sq5">{e}</div>)
                 )
             } else {
                 return (
-                    square5.push(<input className="small-square s5" type="text"/>)
+                    square5.push(<input className="small-square sq5" type="text"/>)
                 )
             }
         });
@@ -196,11 +276,11 @@ class Square extends React.Component {
         this.state.squareSix.map((e, i) => {
             if (e > 0) {
                 return (
-                    square6.push(<div className="small-square s6">{e}</div>)
+                    square6.push(<div className="small-square sq6">{e}</div>)
                 )
             } else {
                 return (
-                    square6.push(<input className="small-square s6" type="text"/>)
+                    square6.push(<input className="small-square sq6" type="text"/>)
                 )
             }
         });
@@ -208,11 +288,11 @@ class Square extends React.Component {
         this.state.squareSeven.map((e, i) => {
             if (e > 0) {
                 return (
-                    square7.push(<div className="small-square s7">{e}</div>)
+                    square7.push(<div className="small-square sq7">{e}</div>)
                 )
             } else {
                 return (
-                    square7.push(<input className="small-square s7" type="text"/>)
+                    square7.push(<input className="small-square sq7" type="text"/>)
                 )
             }
         });
@@ -220,22 +300,22 @@ class Square extends React.Component {
         this.state.squareEight.map((e, i) => {
             if (e > 0) {
                 return (
-                    square8.push(<div className="small-square s8">{e}</div>)
+                    square8.push(<div className="small-square sq8">{e}</div>)
                 )
             } else {
                 return (
-                    square8.push(<input className="small-square s8" type="text"/>)
+                    square8.push(<input className="small-square sq8" type="text"/>)
                 )
             }
         });
         this.state.squareNine.map((e, i) => {
             if (e > 0) {
                 return (
-                    square9.push(<div className="small-square s9">{e}</div>)
+                    square9.push(<div className="small-square sq9">{e}</div>)
                 )
             } else {
                 return (
-                    square9.push(<input className="small-square s9" type="text"/>)
+                    square9.push(<input className="small-square sq9" type="text"/>)
                 )
             }
         });
