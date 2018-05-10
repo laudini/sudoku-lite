@@ -53,7 +53,48 @@ class Square extends React.Component {
             return r.json();
         }).then(obj => {
             return obj.board
-        }).then(arr => {
+        }).then(lines => {
+            console.log(lines);
+            let arr = [[],[],[],[],[],[],[],[],[]];
+            for (let i = 0; i < lines.length; i++) {
+                if (i === 0) {
+                    arr[i].push(lines[i][0],lines[i][1],lines[i][2]);
+                    arr[i + 1].push(lines[i][3],lines[i][4],lines[i][5]);
+                    arr[i + 2].push(lines[i][6],lines[i][7],lines[i][8]);
+                } else if (i === 1) {
+                    arr[i - 1].push(lines[i][0],lines[i][1],lines[i][2]);
+                    arr[i].push(lines[i][3],lines[i][4],lines[i][5]);
+                    arr[i + 1].push(lines[i][6],lines[i][7],lines[i][8]);
+                } else if (i === 2) {
+                    arr[i - 2].push(lines[i][0],lines[i][1],lines[i][2]);
+                    arr[i - 1].push(lines[i][3],lines[i][4],lines[i][5]);
+                    arr[i ].push(lines[i][6],lines[i][7],lines[i][8]);
+                } else if (i === 3) {
+                    arr[i].push(lines[i][0],lines[i][1],lines[i][2]);
+                    arr[i + 1].push(lines[i][3],lines[i][4],lines[i][5]);
+                    arr[i + 2].push(lines[i][6],lines[i][7],lines[i][8]);
+                } else if (i === 4) {
+                    arr[i - 1].push(lines[i][0],lines[i][1],lines[i][2]);
+                    arr[i].push(lines[i][3],lines[i][4],lines[i][5]);
+                    arr[i + 1].push(lines[i][6],lines[i][7],lines[i][8]);
+                } else if (i === 5) {
+                    arr[i - 2].push(lines[i][0],lines[i][1],lines[i][2]);
+                    arr[i - 1].push(lines[i][3],lines[i][4],lines[i][5]);
+                    arr[i].push(lines[i][6],lines[i][7],lines[i][8]);
+                } else if (i === 6) {
+                    arr[i].push(lines[i][0],lines[i][1],lines[i][2]);
+                    arr[i + 1].push(lines[i][3],lines[i][4],lines[i][5]);
+                    arr[i + 2].push(lines[i][6],lines[i][7],lines[i][8]);
+                } else if (i === 7) {
+                    arr[i - 1].push(lines[i][0],lines[i][1],lines[i][2]);
+                    arr[i].push(lines[i][3],lines[i][4],lines[i][5]);
+                    arr[i + 1].push(lines[i][6],lines[i][7],lines[i][8]);
+                } else if (i === 8) {
+                    arr[i - 2].push(lines[i][0],lines[i][1],lines[i][2]);
+                    arr[i - 1].push(lines[i][3],lines[i][4],lines[i][5]);
+                    arr[i].push(lines[i][6],lines[i][7],lines[i][8]);
+                }
+            }
             this.setState({
                 square: arr
             })
