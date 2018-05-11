@@ -232,8 +232,7 @@ class Square extends React.Component {
                 sortedFinishedLines[k].slice(0).sort();
                 console.log(k, 'line', sortedFinishedLines[k]);
                 for (let n = 0; n < sortedFinishedLines[k].length; n++) {
-                    if (sortedFinishedLines[k][n] !== properArray[n]) {
-                        solvedGood = false;
+                    if (sortedFinishedLines[k].slice(0).sort()[n] !== properArray[n]) {
                         console.log('square wrong');
                         break;
                     } else {
