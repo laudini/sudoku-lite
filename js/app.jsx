@@ -406,7 +406,6 @@ class Square extends React.Component {
             <div>
 
                 <button onClick={this.fillBoard}>START</button>
-                <button onClick={this.checkSolution}>APPROVE AND CHECK</button>
                 <div className="board">
                     <div className="main-square">
                         {square1}
@@ -436,6 +435,8 @@ class Square extends React.Component {
                         {square9}
                     </div>
                 </div>
+
+                <button onClick={this.checkSolution}>APPROVE AND CHECK</button>
             </div>
         )
     }

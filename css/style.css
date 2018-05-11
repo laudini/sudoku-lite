@@ -68,26 +68,32 @@ body {
 }
 .Main-Container {
 
-    width: 450px;
+    width: 400px;
     background: lightgoldenrodyellow;
+}
+.Main-Container > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .board {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .main-square {
     display: flex;
     flex-wrap: wrap;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border: 1px solid black;
 }
 .small-square {
     display: flex;
-    width: 49px;
-    height: 49px;
+    width: 39px;
+    height: 39px;
     border: 1px solid black;
     justify-content: center;
     align-items: center;
