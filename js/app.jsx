@@ -121,167 +121,262 @@ class Square extends React.Component {
     checkSolution = () => {
         let allSmallSquares = document.querySelectorAll(".small-square");
         let allSolved = false;
+        let solvedGood = false;
         for (let i = 0; i < allSmallSquares.length; i++) {
             if (allSmallSquares[i].value > 0 && allSmallSquares[i].value < 10 || allSmallSquares[i].innerText > 0 && allSmallSquares[i].innerText < 10 ) {
                 allSolved = true;
             } else {
-                allSolved = false;
+                // allSolved = false;
                 break;
             }
         }
+        if (allSolved) {
 
-        let sq1 = Array.from(document.querySelectorAll(".sq1"));
-        let sq1elems = [];
-        for (let i = 0; i < 9; i++) {
-            if (sq1[i].tagName === "DIV") {
-                sq1elems.push(sq1[i].innerText)
-            } else {
-                sq1elems.push(sq1[i].value)
+            let sq1 = Array.from(document.querySelectorAll(".sq1"));
+            let sq1elems = [];
+            for (let i = 0; i < 9; i++) {
+                if (sq1[i].tagName === "DIV") {
+                    sq1elems.push(sq1[i].innerText)
+                } else {
+                    sq1elems.push(sq1[i].value)
+                }
             }
-        }
 
-        let sq2 = Array.from(document.querySelectorAll(".sq2"));
-        let sq2elems = [];
-        for (let i = 0; i < 9; i++) {
-            if (sq2[i].tagName === "DIV") {
-                sq2elems.push(sq2[i].innerText)
-            } else {
-                sq2elems.push(sq2[i].value)
-            }
-        }
 
-        let sq3 = Array.from(document.querySelectorAll(".sq3"));
-        let sq3elems = [];
-        for (let i = 0; i < 9; i++) {
-            if (sq3[i].tagName === "DIV") {
-                sq3elems.push(sq3[i].innerText)
-            } else {
-                sq3elems.push(sq3[i].value)
+            let sq2 = Array.from(document.querySelectorAll(".sq2"));
+            let sq2elems = [];
+            for (let i = 0; i < 9; i++) {
+                if (sq2[i].tagName === "DIV") {
+                    sq2elems.push(sq2[i].innerText)
+                } else {
+                    sq2elems.push(sq2[i].value)
+                }
             }
-        }
 
-        let sq4 = Array.from(document.querySelectorAll(".sq4"));
-        let sq4elems = [];
-        for (let i = 0; i < 9; i++) {
-            if (sq4[i].tagName === "DIV") {
-                sq4elems.push(sq4[i].innerText)
-            } else {
-                sq4elems.push(sq4[i].value)
+            let sq3 = Array.from(document.querySelectorAll(".sq3"));
+            let sq3elems = [];
+            for (let i = 0; i < 9; i++) {
+                if (sq3[i].tagName === "DIV") {
+                    sq3elems.push(sq3[i].innerText)
+                } else {
+                    sq3elems.push(sq3[i].value)
+                }
             }
-        }
 
-        let sq5 = Array.from(document.querySelectorAll(".sq5"));
-        let sq5elems = [];
-        for (let j = 0; j < 9; j++) {
-            if (sq5[j].tagName === "DIV") {
-                sq5elems.push(sq5[j].innerText)
-            } else {
-                sq5elems.push(sq5[j].value)
+            let sq4 = Array.from(document.querySelectorAll(".sq4"));
+            let sq4elems = [];
+            for (let i = 0; i < 9; i++) {
+                if (sq4[i].tagName === "DIV") {
+                    sq4elems.push(sq4[i].innerText)
+                } else {
+                    sq4elems.push(sq4[i].value)
+                }
             }
-        }
 
-        let sq6 = Array.from(document.querySelectorAll(".sq6"));
-        let sq6elems = [];
-        for (let i = 0; i < 9; i++) {
-            if (sq6[i].tagName === "DIV") {
-                sq6elems.push(sq6[i].innerText)
-            } else {
-                sq6elems.push(sq6[i].value)
+            let sq5 = Array.from(document.querySelectorAll(".sq5"));
+            let sq5elems = [];
+            for (let j = 0; j < 9; j++) {
+                if (sq5[j].tagName === "DIV") {
+                    sq5elems.push(sq5[j].innerText)
+                } else {
+                    sq5elems.push(sq5[j].value)
+                }
             }
-        }
 
-        let sq7 = Array.from(document.querySelectorAll(".sq7"));
-        let sq7elems = [];
-        for (let i = 0; i < 9; i++) {
-            if (sq7[i].tagName === "DIV") {
-                sq7elems.push(sq7[i].innerText)
-            } else {
-                sq7elems.push(sq7[i].value)
+            let sq6 = Array.from(document.querySelectorAll(".sq6"));
+            let sq6elems = [];
+            for (let i = 0; i < 9; i++) {
+                if (sq6[i].tagName === "DIV") {
+                    sq6elems.push(sq6[i].innerText)
+                } else {
+                    sq6elems.push(sq6[i].value)
+                }
             }
-        }
 
-        let sq8 = Array.from(document.querySelectorAll(".sq8"));
-        let sq8elems = [];
-        for (let i = 0; i < 9; i++) {
-            if (sq8[i].tagName === "DIV") {
-                sq8elems.push(sq8[i].innerText)
-            } else {
-                sq8elems.push(sq8[i].value)
+            let sq7 = Array.from(document.querySelectorAll(".sq7"));
+            let sq7elems = [];
+            for (let i = 0; i < 9; i++) {
+                if (sq7[i].tagName === "DIV") {
+                    sq7elems.push(sq7[i].innerText)
+                } else {
+                    sq7elems.push(sq7[i].value)
+                }
             }
-        }
 
-        let sq9 = Array.from(document.querySelectorAll(".sq9"));
-        let sq9elems = [];
-        for (let i = 0; i < 9; i++) {
-            if (sq9[i].tagName === "DIV") {
-                sq9elems.push(sq9[i].innerText)
-            } else {
-                sq9elems.push(sq9[i].value)
+            let sq8 = Array.from(document.querySelectorAll(".sq8"));
+            let sq8elems = [];
+            for (let i = 0; i < 9; i++) {
+                if (sq8[i].tagName === "DIV") {
+                    sq8elems.push(sq8[i].innerText)
+                } else {
+                    sq8elems.push(sq8[i].value)
+                }
             }
-        }
-        let finishedLines = [sq1elems, sq2elems, sq3elems, sq4elems, sq5elems, sq6elems, sq7elems, sq8elems, sq9elems]
-        let finalArray = [[],[],[],[],[],[],[],[],[]];
-        for (let i = 0; i < finishedLines.length; i++) {
-            if (i === 0) {
-                finalArray[i].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
-                finalArray[i + 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
-                finalArray[i + 2].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
-            } else if (i === 1) {
-                finalArray[i - 1].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
-                finalArray[i].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
-                finalArray[i + 1].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
-            } else if (i === 2) {
-                finalArray[i - 2].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
-                finalArray[i - 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
-                finalArray[i].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
-            } else if (i === 3) {
-                finalArray[i].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
-                finalArray[i + 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
-                finalArray[i + 2].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
-            } else if (i === 4) {
-                finalArray[i - 1].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
-                finalArray[i].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
-                finalArray[i + 1].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
-            } else if (i === 5) {
-                finalArray[i - 2].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
-                finalArray[i - 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
-                finalArray[i].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
-            } else if (i === 6) {
-                finalArray[i].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
-                finalArray[i + 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
-                finalArray[i + 2].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
-            } else if (i === 7) {
-                finalArray[i - 1].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
-                finalArray[i].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
-                finalArray[i + 1].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
-            } else if (i === 8) {
-                finalArray[i - 2].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
-                finalArray[i - 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
-                finalArray[i].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
-            }
-        }
 
-        let data = {
-            board: [
-                finalArray[0],
-                finalArray[1],
-                finalArray[2],
-                finalArray[3],
-                finalArray[4],
-                finalArray[5],
-                finalArray[6],
-                finalArray[7],
-                finalArray[8]
-            ]
-        };
-        console.log(data);
-        fetch('https://sugoku.herokuapp.com/validate', {
-            method: 'POST',
-            body: JSON.stringify(data)
-        }).then(response => response.json())
-            .then(data => {
-                console.log(data)
-            });
+            let sq9 = Array.from(document.querySelectorAll(".sq9"));
+            let sq9elems = [];
+            for (let i = 0; i < 9; i++) {
+                if (sq9[i].tagName === "DIV") {
+                    sq9elems.push(sq9[i].innerText)
+                } else {
+                    sq9elems.push(sq9[i].value)
+                }
+            }
+
+            let properArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            let finishedLines = [sq1elems, sq2elems, sq3elems, sq4elems, sq5elems, sq6elems, sq7elems, sq8elems, sq9elems]
+            let sortedFinishedLines = finishedLines;
+            solvedGood = true;
+
+            for (let k = 0; k < sortedFinishedLines.length; k++ ) {
+                sortedFinishedLines[k].slice(0).sort();
+                console.log(k, 'line', sortedFinishedLines[k]);
+                for (let n = 0; n < sortedFinishedLines[k].length; n++) {
+                    if (sortedFinishedLines[k][n] !== properArray[n]) {
+                        solvedGood = false;
+                        console.log('square wrong');
+                        break;
+                    } else {
+                        console.log('square good');
+                    }
+                }
+            }
+
+
+            let finalArray = [[], [], [], [], [], [], [], [], []];
+            for (let i = 0; i < finishedLines.length; i++) {
+                if (i === 0) {
+                    finalArray[i].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                    finalArray[i + 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                    finalArray[i + 2].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+                } else if (i === 1) {
+                    finalArray[i - 1].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                    finalArray[i].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                    finalArray[i + 1].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+                } else if (i === 2) {
+                    finalArray[i - 2].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                    finalArray[i - 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                    finalArray[i].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+                } else if (i === 3) {
+                    finalArray[i].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                    finalArray[i + 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                    finalArray[i + 2].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+                } else if (i === 4) {
+                    finalArray[i - 1].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                    finalArray[i].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                    finalArray[i + 1].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+                } else if (i === 5) {
+                    finalArray[i - 2].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                    finalArray[i - 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                    finalArray[i].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+                } else if (i === 6) {
+                    finalArray[i].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                    finalArray[i + 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                    finalArray[i + 2].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+                } else if (i === 7) {
+                    finalArray[i - 1].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                    finalArray[i].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                    finalArray[i + 1].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+                } else if (i === 8) {
+                    finalArray[i - 2].push(finishedLines[i][0], finishedLines[i][1], finishedLines[i][2]);
+                    finalArray[i - 1].push(finishedLines[i][3], finishedLines[i][4], finishedLines[i][5]);
+                    finalArray[i].push(finishedLines[i][6], finishedLines[i][7], finishedLines[i][8]);
+                }
+            }
+            for (let k = 0; k < finalArray.length; k++ ) {
+                finalArray[k].sort();
+                for (let n = 0; n < finalArray[k].length; n++) {
+                    if (finalArray[k][n] !== properArray[n]) {
+                        console.log('hortizonal wrong');
+                        solvedGood = false;
+                        break;
+                    } else {
+                        console.log('horizontal good');
+                    }
+                }
+            }
+
+
+            let finalArrayVertical = [[], [], [], [], [], [], [], [], []];
+            for (let i = 0; i < finishedLines.length; i++) {
+                if (i === 0) {
+                    finalArrayVertical[i].push(finishedLines[i][0], finishedLines[i][3], finishedLines[i][6]);
+                    finalArrayVertical[i + 1].push(finishedLines[i][1], finishedLines[i][4], finishedLines[i][7]);
+                    finalArrayVertical[i + 2].push(finishedLines[i][2], finishedLines[i][5], finishedLines[i][8]);
+                } else if (i === 1) {
+                    finalArrayVertical[i + 2].push(finishedLines[i][0], finishedLines[i][3], finishedLines[i][6]);
+                    finalArrayVertical[i + 3].push(finishedLines[i][1], finishedLines[i][4], finishedLines[i][7]);
+                    finalArrayVertical[i + 4].push(finishedLines[i][2], finishedLines[i][5], finishedLines[i][8]);
+                } else if (i === 2) {
+                    finalArrayVertical[i + 4].push(finishedLines[i][0], finishedLines[i][3], finishedLines[i][6]);
+                    finalArrayVertical[i + 5].push(finishedLines[i][1], finishedLines[i][4], finishedLines[i][7]);
+                    finalArrayVertical[i + 6].push(finishedLines[i][2], finishedLines[i][5], finishedLines[i][8]);
+                } else if (i === 3) {
+                    finalArrayVertical[i - 3].push(finishedLines[i][0], finishedLines[i][3], finishedLines[i][6]);
+                    finalArrayVertical[i - 2].push(finishedLines[i][1], finishedLines[i][4], finishedLines[i][7]);
+                    finalArrayVertical[i - 1].push(finishedLines[i][2], finishedLines[i][5], finishedLines[i][8]);
+                } else if (i === 4) {
+                    finalArrayVertical[i - 1].push(finishedLines[i][0], finishedLines[i][3], finishedLines[i][6]);
+                    finalArrayVertical[i].push(finishedLines[i][1], finishedLines[i][4], finishedLines[i][7]);
+                    finalArrayVertical[i + 1].push(finishedLines[i][2], finishedLines[i][5], finishedLines[i][8]);
+                } else if (i === 5) {
+                    finalArrayVertical[i + 1].push(finishedLines[i][0], finishedLines[i][3], finishedLines[i][6]);
+                    finalArrayVertical[i + 2].push(finishedLines[i][1], finishedLines[i][4], finishedLines[i][7]);
+                    finalArrayVertical[i + 3].push(finishedLines[i][2], finishedLines[i][5], finishedLines[i][8]);
+                } else if (i === 6) {
+                    finalArrayVertical[i - 6].push(finishedLines[i][0], finishedLines[i][3], finishedLines[i][6]);
+                    finalArrayVertical[i - 5].push(finishedLines[i][1], finishedLines[i][4], finishedLines[i][7]);
+                    finalArrayVertical[i - 4].push(finishedLines[i][2], finishedLines[i][5], finishedLines[i][8]);
+                } else if (i === 7) {
+                    finalArrayVertical[i - 4].push(finishedLines[i][0], finishedLines[i][3], finishedLines[i][6]);
+                    finalArrayVertical[i - 3].push(finishedLines[i][1], finishedLines[i][4], finishedLines[i][7]);
+                    finalArrayVertical[i - 2].push(finishedLines[i][2], finishedLines[i][5], finishedLines[i][8]);
+                } else if (i === 8) {
+                    finalArrayVertical[i - 2].push(finishedLines[i][0], finishedLines[i][3], finishedLines[i][6]);
+                    finalArrayVertical[i - 1].push(finishedLines[i][1], finishedLines[i][4], finishedLines[i][7]);
+                    finalArrayVertical[i].push(finishedLines[i][2], finishedLines[i][5], finishedLines[i][8]);
+                }
+            }
+
+            for (let k = 0; k < finalArrayVertical.length; k++ ) {
+                finalArrayVertical[k].sort();
+                for (let n = 0; n < finalArrayVertical[k].length; n++) {
+                    if (finalArrayVertical[k][n] !== properArray[n]) {
+                        console.log('vertical wrong');
+                        solvedGood = false;
+                        break;
+                    } else {
+                        console.log('vertical good');
+                    }
+                }
+            }
+            if (solvedGood === true) {
+                alert('Correct!');
+            }
+
+
+        }
+        // let data = {
+        //     board: [
+        //         finalArray[0],
+        //         finalArray[1],
+        //         finalArray[2],
+        //         finalArray[3],
+        //         finalArray[4],
+        //         finalArray[5],
+        //         finalArray[6],
+        //         finalArray[7],
+        //         finalArray[8]
+        //     ]
+        // };
+        // console.log(data);
+        // fetch('https://sugoku.herokuapp.com/validate', {
+        //     method: 'POST',
+        //     body: JSON.stringify(data)
+        // }).then(response => response.json())
+        //     .then(data => {
+        //         console.log(data)
+        //     });
     };
 
     render() {
