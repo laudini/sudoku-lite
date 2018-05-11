@@ -154,7 +154,7 @@ class Square extends React.Component {
         let sq3elems = [];
         for (let i = 0; i < 9; i++) {
             if (sq3[i].tagName === "DIV") {
-                sq1elems.push(sq3[i].innerText)
+                sq3elems.push(sq3[i].innerText)
             } else {
                 sq3elems.push(sq3[i].value)
             }
